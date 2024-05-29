@@ -12,3 +12,4 @@
 /Users/lilla/Downloads/VSCode/ConsoleApp1/obj/Debug/net8.0/ConsoleApp1.pdb
 /Users/lilla/Downloads/VSCode/ConsoleApp1/obj/Debug/net8.0/ConsoleApp1.genruntimeconfig.cache
 /Users/lilla/Downloads/VSCode/ConsoleApp1/obj/Debug/net8.0/ref/ConsoleApp1.dll
+/Users/lilla/Downloads/VSCode/ConsoleApp1/obj/Debug/net8.0/ConsoleApp1.sourcelink.json
