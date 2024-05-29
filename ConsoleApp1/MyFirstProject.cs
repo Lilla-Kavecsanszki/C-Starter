@@ -426,50 +426,93 @@ using System.Threading.Tasks;
 
 
 // While loop
-namespace While 
+// namespace While 
+// {
+//     class Program
+//     {
+//         static void Main(string[] args)
+//         {
+//             // for (int i = 0; i < 10; i++)  //  <-- the for loop
+//             // {
+//             //     Console.Write(i);
+//             // }
+
+//             // int i = 0;  // the variable needs to be outside the while loop, where we define it
+//             // while (i < 10) // i < 10 is the condition - only that we have inside the while loop
+//             // {
+//             //     Console.Write(i);
+//             //     i++;  // the third part is inside the {}
+//             // }   
+
+//             Console.Write("Enter the first number: ");
+//             string numberAInput = Console.ReadLine();
+//             int numberA = Convert.ToInt32(numberAInput);
+
+//             Console.Write("Enter the second number: ");
+//             string numberBInput = Console.ReadLine();
+//             int numberB = Convert.ToInt32(numberBInput);
+
+//             int answer = numberA * numberB;
+//             int actualAnswer = 0;
+
+//             Console.Write("What's the value of " + numberA + " x " + numberB + "?");
+//             Console.WriteLine();
+
+//             while (answer != actualAnswer)
+//             {
+//                 Console.WriteLine("Enter your answer: ");
+//                 string answerInput = Console.ReadLine();
+//                 actualAnswer = Convert.ToInt32(answerInput);
+
+//                 if (answer != actualAnswer) 
+//                 {
+//                     Console.WriteLine("Incorrect!");
+//                 }
+//             }
+//             Console.WriteLine("Well done!");
+//         }
+//     }
+// }
+
+// do while loop is pretty much the same, however the do while loop will always run at least for the first time, even if the condition is not met, as it checks that after the loop is executed. the while loop checks the condition first, and only runs if the condition is met. 
+
+
+// Conditional operators
+// namespace ConditionalOperator
+// {
+//     class Program
+//     {
+//         static void Main(string[] args)
+//         {
+//             int age = -10;
+
+//             // if (age >= 0)  <-- the condition
+//             // {
+//             //     Console.WriteLine("Valid");
+//             // }
+//             // else
+//             // {
+//             //     Console.WriteLine("Invalid");
+//             // }
+
+//             // condition ? true : false
+//             string result = age >= 0 ? "Valid" : "Invalid";
+//             Console.WriteLine(result);
+//         }
+//     }
+// }
+
+
+// Numeric Formatting
+namespace Format
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // for (int i = 0; i < 10; i++)  //  <-- the for loop
-            // {
-            //     Console.Write(i);
-            // }
-
-            // int i = 0;  // the variable needs to be outside the while loop, where we define it
-            // while (i < 10) // i < 10 is the condition - only that we have inside the while loop
-            // {
-            //     Console.Write(i);
-            //     i++;  // the third part is inside the {}
-            // }   
-
-            Console.Write("Enter the first number: ");
-            string numberAInput = Console.ReadLine();
-            int numberA = Convert.ToInt32(numberAInput);
-
-            Console.Write("Enter the second number: ");
-            string numberBInput = Console.ReadLine();
-            int numberB = Convert.ToInt32(numberBInput);
-
-            int answer = numberA * numberB;
-            int actualAnswer = 0;
-
-            Console.Write("What's the value of " + numberA + " x " + numberB + "?");
-            Console.WriteLine();
-
-            while (answer != actualAnswer)
-            {
-                Console.WriteLine("Enter your answer: ");
-                string answerInput = Console.ReadLine();
-                actualAnswer = Convert.ToInt32(answerInput);
-
-                if (answer != actualAnswer) 
-                {
-                    Console.WriteLine("Incorrect!");
-                }
-            }
-            Console.WriteLine("Well done!");
+            double value = 1000D / 12.34D;
+            Console.WriteLine(value);
+            Console.WriteLine(string.Format("{0} {1}", value, 1000));
         }
     }
 }
