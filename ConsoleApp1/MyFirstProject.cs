@@ -245,50 +245,231 @@ using System.Threading.Tasks;
 
 
 //Console input/Output
-namespace ConsoleIO 
+// namespace ConsoleIO 
+// {
+//     class Program
+//     {
+//         static void Main(string[] args)
+//         {
+            // Console.WriteLine("Hello my name is Lilla!");
+            // Console.Write("Enter you name: ");
+
+            // string name;
+            // name = Console.ReadLine(); // can be 1 line too; string name = Console.Readline();
+            // // Console.WriteLine(name);
+
+            // Console.Write("Enter your age: ");
+            // string ageInput = Console.ReadLine(); // these can be in 1 line too; int age = Convert.ToInt32(Console.ReadLine());
+            // int age = Convert.ToInt32(ageInput);
+            // // Console.WriteLine(age);
+
+            // // Console.Write("Your name is ");
+            // // Console.Write(name);
+            // // Console.Write("and your age is ");
+            // // Console.Write(age + ".");
+
+            // Console.Write("Your name is " + name + " and your age is " + age + ".");
+            // System.Console.WriteLine();
+
+            // == > >= < <= != || &&
+
+            // if (age < 0 || age > 150)
+            // {
+            //     Console.WriteLine("Invalid age!");
+            // }
+            // else 
+            // {
+            //     if (age >= 18 && age <= 25)
+            //     {
+            //         Console.WriteLine("You are between 18 and 25!");
+            //     }
+            //     else if (age >= 26)
+            //     {
+            //         Console.WriteLine("You are 26 or older!");
+            //     }
+            // }
+
+//             Console.Write("Enter the first number: ");
+//             string numberAInput = Console.ReadLine();
+//             int numberA = Convert.ToInt32(numberAInput);
+
+//             Console.Write("Enter the second number: ");
+//             string numberBInput = Console.ReadLine();
+//             int numberB = Convert.ToInt32(numberBInput);
+
+//             int answer = numberA * numberB;
+//             Console.Write("Value of " + numberA + " x " + numberB + ": ");
+//             string answerInput = Console.ReadLine();
+//             int actualAnswer = Convert.ToInt32(answerInput);
+
+//             if (answer == actualAnswer)  //=!
+//             {
+//                 Console.WriteLine("Correct, well done!");
+//             }
+//             else //if (answer != actualAnswer)   - this is not needed, as basically given
+//             {
+//                 Console.WriteLine("Incorrect!");
+//             }
+        
+//         }
+//     }
+// } 
+
+
+// Switch statement
+// namespace ConsoleIO 
+// {
+//     class Program
+//     {
+//         static void Main(string[] args)
+//         {
+//             Console.Write("Enter a day (number) of the week; ");
+//             int day = Convert.ToInt32(Console.ReadLine());
+
+            // if (day == 1)
+            // {
+            //     Console.WriteLine("Monday");
+            // }
+            // else if (day == 2)
+            // {
+            //     Console.WriteLine("Tuesday");
+            // }
+            // else if (day == 3)
+            // {
+            //     Console.WriteLine("Wednesday");
+            // }
+            // else if (day == 4)
+            // {
+            //     Console.WriteLine("Thursday");
+            // }
+            // else if (day == 5)
+            // {
+            //     Console.WriteLine("Friday");
+            // }
+            // else if (day == 6)
+            // {
+            //     Console.WriteLine("Saturday");
+            // }
+            // else if (day == 7)
+            // {
+            //     Console.WriteLine("Sundays");
+            // }
+            // else
+            // {
+            //     Console.WriteLine("Invalid, please enter a number between 1 and 7.");
+            // }
+
+//             switch (day)
+//             {
+//                 case 1: Console.WriteLine("Monday");
+//                     break;
+//                 case 2: Console.WriteLine("Tuesday");
+//                     break;
+//                 case 3: Console.WriteLine("Wednesday");
+//                     break;
+//                 case 4: Console.WriteLine("Thursday");
+//                     break;
+//                 case 5: Console.WriteLine("Friday");
+//                     break;
+//                 case 6: Console.WriteLine("Saturday");
+//                     break;
+//                 case 7: Console.WriteLine("Sunday");
+//                     break;
+//                 default: Console.WriteLine("Invalid, please enter a number between 1 and 7.");
+//                     break;
+//             }
+//         }
+//     }
+// }
+
+
+// For loop
+// namespace For 
+// {
+//     class Program
+//     {
+//         static void Main(string[] args)
+//         {
+//             /* Console.Write("Hi");
+//             Console.Write("Hi");
+//             Console.Write("Hi");
+//             Console.Write("Hi");
+//             Console.Write("Hi"); */
+
+//             Console.Write("What do you want to repeat?: ");
+//             string messageInput = Console.ReadLine();
+//             string message = messageInput + " ";
+
+//             Console.WriteLine("How many times do you want to repeat it?: ");
+//             int loopTimes = Convert.ToInt32(Console.ReadLine());
+            
+
+//             if (loopTimes <= 0)
+//             {
+//                 Console.Write("Please enter a value above 0");
+//             }
+//             else //>= 1
+//             {
+//                 for (int i = 0; i < loopTimes; i++)
+//                 {
+//                     Console.Write(message);
+//                 }
+
+//             // for (int i = 0; i <= 10; i += 2)
+//             // {
+//             //     Console.Write(i);
+//             // }
+//             }
+//         }
+//     }
+// }
+
+
+// While loop
+namespace While 
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello my name is Lilla!");
-            Console.Write("Enter you name: ");
+            // for (int i = 0; i < 10; i++)  //  <-- the for loop
+            // {
+            //     Console.Write(i);
+            // }
 
-            string name;
-            name = Console.ReadLine(); // can be 1 line too; string name = Console.Readline();
-            // Console.WriteLine(name);
+            // int i = 0;  // the variable needs to be outside the while loop, where we define it
+            // while (i < 10) // i < 10 is the condition - only that we have inside the while loop
+            // {
+            //     Console.Write(i);
+            //     i++;  // the third part is inside the {}
+            // }   
 
-            Console.Write("Enter your age: ");
-            string ageInput = Console.ReadLine(); // these can be in 1 line too; int age = Convert.ToInt32(Console.ReadLine());
-            int age = Convert.ToInt32(ageInput);
-            // Console.WriteLine(age);
+            Console.Write("Enter the first number: ");
+            string numberAInput = Console.ReadLine();
+            int numberA = Convert.ToInt32(numberAInput);
 
-            // Console.Write("Your name is ");
-            // Console.Write(name);
-            // Console.Write("and your age is ");
-            // Console.Write(age + ".");
+            Console.Write("Enter the second number: ");
+            string numberBInput = Console.ReadLine();
+            int numberB = Convert.ToInt32(numberBInput);
 
-            Console.Write("Your name is " + name + " and your age is " + age + ".");
-            System.Console.WriteLine();
+            int answer = numberA * numberB;
+            int actualAnswer = 0;
 
-            // == > >= < <= != || &&
+            Console.Write("What's the value of " + numberA + " x " + numberB + "?");
+            Console.WriteLine();
 
-            if (age < 0 || age > 150)
+            while (answer != actualAnswer)
             {
-                Console.WriteLine("Invalid age!");
-            }
-            else 
-            {
-                if (age >= 18 && age <= 25)
+                Console.WriteLine("Enter your answer: ");
+                string answerInput = Console.ReadLine();
+                actualAnswer = Convert.ToInt32(answerInput);
+
+                if (answer != actualAnswer) 
                 {
-                    Console.WriteLine("You are between 18 and 25!");
-                }
-                else if (age >= 26)
-                {
-                    Console.WriteLine("You are 26 or older!");
+                    Console.WriteLine("Incorrect!");
                 }
             }
-        
+            Console.WriteLine("Well done!");
         }
     }
-} 
+}
