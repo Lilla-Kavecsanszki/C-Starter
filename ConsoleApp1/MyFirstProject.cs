@@ -848,30 +848,73 @@ using System.Threading.Tasks;
 
 
 //Exercise 2
-namespace PrintingStringInReverse
+// namespace PrintingStringInReverse
+// {
+//     class Program
+//     {
+//         static void Main(string[] args)
+//         {
+//             /* Ask user to input message
+//                Print in order
+//                Print in reverse */
+
+//             Console.WriteLine("Enter a message: ");
+//             string message = Console.ReadLine();
+
+//             for (int i = 0; i < message.Length; i++)
+//             {
+//                 System.Console.Write(message[i]);
+//             }
+
+//             System.Console.Write(" - ");
+
+//             for (int i = message.Length -1; i >= 0; i--)
+//             {
+//                 System.Console.Write(message[i]);
+//             }
+//         }
+//     }
+// }
+
+
+//Exercise 3
+namespace PasswordChecker
 {
     class Program
     {
         static void Main(string[] args)
         {
-            /* Ask user to input message
-               Print in order
-               Print in reverse */
+            /* Ask user to enter password, and store,
+               Ask user to enter password again, and store,
+               Check if they are both contain something
+                 If so check if they are the same
+                   if they are, print "Password match"
+                   if they are not print "Password do not match"
+                If they are empty, print "Please enter a password!" */
 
-            Console.WriteLine("Enter a message: ");
-            string message = Console.ReadLine();
+            Console.WriteLine("Enter your password: ");
+            string password = Console.ReadLine();
 
-            for (int i = 0; i < message.Length; i++)
+            Console.WriteLine("Enter your password again: ");
+            string passwordAgain = Console.ReadLine();
+
+            if (!string.IsNullOrEmpty(password) && !string.IsNullOrEmpty(passwordAgain))  //would we get the same result if we used .Empty? - yes
             {
-                System.Console.Write(message[i]);
+                if (password.Equals(passwordAgain))
+                {
+                    Console.WriteLine("Password match!");
+                }
+                else
+                {
+                    Console.WriteLine("Password do not match!");
+                }
             }
-
-            System.Console.Write(" - ");
-
-            for (int i = message.Length -1; i >= 0; i--)
+            else
             {
-                System.Console.Write(message[i]);
+
+                Console.WriteLine("Please enter a password!");
             }
+            
         }
     }
 }
