@@ -540,37 +540,58 @@ using System.Threading.Tasks;
 
 
 //TryParse
-namespace tryParse
+// namespace tryParse
+// {
+//     class Program
+//     {
+//         static void Main(string[] args)
+//         {
+//             bool success = true;
+
+//             while (success)
+//             {
+//                 Console.WriteLine("Enter a number: ");
+//                 string numInput = Console.ReadLine();
+//                 // int num = Convert.ToInt32(numInput);
+//                 // int num = 0;  //in case the TryParse is used
+
+//                 // Console.WriteLine(num);   // this cannot deal with the clien accidentally entering a letter, as it will crash the program
+
+//                 // bool success = int.TryParse(numInput, out num);  //this will put the value of numInput into num without the above conversion, and if the user enters a letter, it will alo not crash.
+
+//                 if (int.TryParse(numInput, out int num))   //we integrated this line in the condition: int num = 0;
+//                 {
+//                     success = false;       //this will stop the loop
+//                     Console.WriteLine(num);
+//                 }
+//                 else
+//                 {
+//                     Console.WriteLine("Failed to convert!");
+//                 }
+
+//             }
+            
+//         }
+//     }
+// }
+
+//First Exercise
+namespace TimesTable
 {
+
     class Program
     {
+        /* Ask the user for a number for the table
+           Write a for loop to print x times table */
         static void Main(string[] args)
         {
-            bool success = true;
+            Console.WriteLine("Enter a number for the table: ");
+            int number = Convert.ToInt32(Console.ReadLine());
 
-            while (success)
+            for (int i = 1; i <= 10; i++)
             {
-                Console.WriteLine("Enter a number: ");
-                string numInput = Console.ReadLine();
-                // int num = Convert.ToInt32(numInput);
-                // int num = 0;  //in case the TryParse is used
-
-                // Console.WriteLine(num);   // this cannot deal with the clien accidentally entering a letter, as it will crash the program
-
-                // bool success = int.TryParse(numInput, out num);  //this will put the value of numInput into num without the above conversion, and if the user enters a letter, it will alo not crash.
-
-                if (int.TryParse(numInput, out int num))   //we integrated this line in the condition: int num = 0;
-                {
-                    success = false;       //this will stop the loop
-                    Console.WriteLine(num);
-                }
-                else
-                {
-                    Console.WriteLine("Failed to convert!");
-                }
-
+                Console.WriteLine("{0} x {1} = {2}", i, number, i * number);
             }
-            
         }
     }
 }
