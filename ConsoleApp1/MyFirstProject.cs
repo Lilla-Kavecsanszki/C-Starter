@@ -576,21 +576,301 @@ using System.Threading.Tasks;
 // }
 
 //First Exercise
-namespace TimesTable
-{
+// namespace TimesTable
+// {
 
+//     class Program
+//     {
+//         /* Ask the user for a number for the table
+//            Write a for loop to print x times table */
+//         static void Main(string[] args)
+//         {
+//             Console.WriteLine("Enter a number for the table: ");
+//             int number = Convert.ToInt32(Console.ReadLine());
+
+//             for (int i = 1; i <= 10; i++)
+//             {
+//                 Console.WriteLine("{0} x {1} = {2}", i, number, i * number);
+//             }
+//         }
+//     }
+// }
+
+
+//Fizz Buzz Game
+// namespace FizzBuzz
+// {
+
+//     class Program
+//     {
+//         /* Create a for loop from 1 to x (15)
+//            3 and 5 FizzBuzz
+//            3 = Fizz
+//            5 = Buzz
+//            else = number */
+//         static void Main(string[] args)
+//         {
+//             for (int i = 1; i <= 100; i++)
+//             {
+//                 //9 % 3 = 0
+//                 if (i % 3 == 0 && i % 5 == 0)
+//                 {
+//                     Console.WriteLine("FizzBuzz");
+//                 }
+//                 else if (i % 3 == 0)
+//                 {
+//                     Console.WriteLine("Fizz");
+//                 }
+//                 else if (i % 5 == 0)
+//                 {
+//                     Console.WriteLine("Buzz");
+//                 }
+//                 else
+//                 {
+//                     Console.WriteLine(i);
+//                 }  
+//             }
+//         }
+//     }
+// }
+
+
+//Verbatim string literal (@) and String Formatting
+// namespace Output
+// {
+
+//     class Program
+//     {
+//         static void Main(string[] args)
+//         {
+//             // \t \n \" \\ = \ - these are a escape characters, so to see 1 \ in the console, we need to write 2 \\
+
+//             string path = "C:\\Program Files\\Microsoft\\"; //this is the normal way to write a path
+//             string speech = "He said \"something\"";  // in the console it will show: He said "something"
+
+//             // $ + {variable} - this is the way to write a variable in a string
+//             // $ "Your name is {name}"
+//             // "Your name is " + name  - this is the old way to write a variable in a string
+
+//             path = @"C:\Program Files\Microsoft\" + "\nNew line test";   // if we use the @ - we have to separate the escape characters
+//             string text = @"Hello ""someone""";
+
+//             Console.WriteLine(path);
+//             Console.WriteLine(speech);
+//             Console.WriteLine(text);
+
+//             string name = "Lilla";
+//             int age = 34;
+
+//             Console.WriteLine("Your name is {0} and your age is {1}.", name, age);
+//             Console.WriteLine("Name: {0}\nAge: {1}", name, age);
+//         }
+//     }
+// }
+
+
+//String Interpolation
+// namespace Interpolation
+// {
+
+//     class Program
+//     {
+//         static void Main(string[] args)
+//         {
+//             string name = "Lilla";
+//             int age = 34;
+
+//             Console.WriteLine("Your name is " + name + " and your age is " + age + ".");
+//             Console.WriteLine("Your name is {0} and your age is {1}.", name, age);
+
+//             Console.WriteLine($"Your name is {name} and your age is {age}.");
+//         }
+//     }
+// }
+
+//String Concatenation
+// namespace Concatenation
+// {
+
+//     class Program
+//     {
+//         static void Main(string[] args)
+//         {
+//             string name = "Lilla";
+//             int age = 34;
+
+//             Console.WriteLine("Your name is " + name + " and your age is " + age + ".");
+//             Console.WriteLine("Your name is {0} and your age is {1}.", name, age);
+//             Console.WriteLine($"Your name is {name} and your age is {age}.");
+
+//             string test = string.Concat("Your name is ", name, " and your age is ", age, ".");
+//             System.Console.WriteLine(test);
+
+//             string[] names = new string[] { "Lilla ", "Federico ", "Gina "};
+//             System.Console.WriteLine(string.Concat(names));
+
+//         }
+//     }
+// }
+
+
+//Empty String 
+// namespace Empty
+// {
+
+//     class Program
+//     {
+//         static void Main(string[] args)
+//         {
+//             // string name = "";
+//             // System.Console.WriteLine(name);
+
+//             System.Console.Write("Enter your name: ");
+//             string name = Console.ReadLine();
+
+//             if (name != string.Empty)   //string.Empty is the same as ""
+//             {
+//                 System.Console.WriteLine($"Your name is {name}.");
+//             }
+//             else
+//             {
+//                 System.Console.WriteLine("Name is empty!");
+//             }
+//         }
+//     }
+// }
+
+
+//String Equals function 
+// namespace Equals
+// {
+
+//     class Program
+//     {
+//         static void Main(string[] args)
+//         {
+//             string message = "Hello";
+//             string compare = "Hello";
+
+//             if (message.Equals(compare))  //(message == compare)  <-- same thing
+//             {
+//                System.Console.Write("Same");
+//             }
+//             else
+//             {
+//                 System.Console.Write("Different");
+//             }
+
+//             System.Console.WriteLine("Enter your name: ");
+//             string name = Console.ReadLine();
+
+//             if (!name.Equals(""))   //.Equals checks the value only but == checks the value and the reference also, its place in the memory.
+//                                     //    Therefore, it is better to use .Equals, as == can give us confusing or false results. if we compare 
+//                                     // an object with a string, even though their value is the same, the == will return false, as they are
+//                                     // in different places in the memory.
+//             {
+//                 System.Console.WriteLine($"Your name is {name}.");
+//             }
+//             else
+//             {
+//                 System.Console.WriteLine("Name is empty!");
+//             }
+//         }
+//     }
+// }
+
+
+//String Iteration Looping 
+// namespace Loop
+// {
+
+//     class Program
+//     {
+//         static void Main(string[] args)
+//         {
+//             string message = "C# is awesome!";
+//             //char[]
+//             // System.Console.WriteLine(message);
+//             // System.Console.WriteLine(message[0]);  //C
+//             // System.Console.WriteLine(message[1]);  //#
+//             // System.Console.WriteLine(message[2]);  //(space)
+//             // System.Console.WriteLine(message[3]);  //i
+
+//             for (int i = 0; i < message.Length; i ++)
+//             {
+//                 System.Console.WriteLine(message[i]);
+//                 Thread.Sleep(250);   //1000ms = 1 second
+//             }
+//             Console.WriteLine();
+//             Console.WriteLine(message.Contains("C"));  //True
+
+//             bool contains = false;
+
+//             for (int i = 0; i < message.Length; i++)
+//             {
+//                 if (message[i].Equals('C'))
+//                 {
+//                     contains = true;
+//                 }
+//             }
+
+//             Console.WriteLine(contains);
+//         }
+//     }
+// }
+
+
+//String is Null or Empty function
+// namespace InNullOrEmpty
+// {
+
+//     class Program
+//     {
+//         static void Main(string[] args)
+//         {
+//             System.Console.WriteLine("Enter your name: ");
+//             string name = Console.ReadLine();
+
+//             Console.WriteLine($"Your name is {name}.");
+
+//             if (name != "")
+//                 System.Console.WriteLine("0");
+
+//             if (!name.Equals(""))
+//                 System.Console.WriteLine("1");
+
+//             if (!string.IsNullOrEmpty(name))    //null or "" - the best way to check if a string is empty and also without the 
+//                                                 // possibility to crash
+//                 System.Console.WriteLine("2");
+//         }
+//     }
+// }
+
+
+//Exercise 2
+namespace PrintingStringInReverse
+{
     class Program
     {
-        /* Ask the user for a number for the table
-           Write a for loop to print x times table */
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter a number for the table: ");
-            int number = Convert.ToInt32(Console.ReadLine());
+            /* Ask user to input message
+               Print in order
+               Print in reverse */
 
-            for (int i = 1; i <= 10; i++)
+            Console.WriteLine("Enter a message: ");
+            string message = Console.ReadLine();
+
+            for (int i = 0; i < message.Length; i++)
             {
-                Console.WriteLine("{0} x {1} = {2}", i, number, i * number);
+                System.Console.Write(message[i]);
+            }
+
+            System.Console.Write(" - ");
+
+            for (int i = message.Length -1; i >= 0; i--)
+            {
+                System.Console.Write(message[i]);
             }
         }
     }
