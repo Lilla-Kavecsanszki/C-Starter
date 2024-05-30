@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -504,15 +505,72 @@ using System.Threading.Tasks;
 
 
 // Numeric Formatting
-namespace Format
+// namespace Format
+// {
+//     class Program
+//     {
+//         static void Main(string[] args)
+//         {
+//             double value = 1000D / 12.34D;
+//             Console.WriteLine(value);
+//             // Console.WriteLine(string.Format("{0} {1}", value, 1000));
+//             Console.WriteLine(string.Format("{0:0.00}", value));
+//             Console.WriteLine(string.Format("{0:0}", value));
+//             Console.WriteLine(string.Format("{0:0.0}", value));
+//             Console.WriteLine(string.Format("{0:0.#}", value));  //removes trailing 0s .. in case if that digit would be a 0 of course
+//             Console.WriteLine(string.Format("{0:0.00}", value));
+
+//             double money = -10D / 3D;  //3.3333333333333335
+//             Console.WriteLine(money);
+//             Console.WriteLine(string.Format("£{0:0.00}", money));
+
+//             Console.WriteLine(string.Format("-£10 / £3 = £{0:0.00}", money));
+//             Console.WriteLine(money.ToString("C"));    //currency format
+//             Console.WriteLine(money.ToString("C0"));   //no decimal places
+//             Console.WriteLine(money.ToString("C1"));   //1 decimal place
+//             Console.WriteLine(money.ToString("C2"));   //2 decimal places
+
+//             Console.WriteLine(money.ToString("C", CultureInfo.CurrentCulture));    //currency format - whatever is set up on the laptop that is used
+//             Console.WriteLine(money.ToString("C", CultureInfo.CreateSpecificCulture("en-GB")));
+//             Console.WriteLine(money.ToString("C", CultureInfo.CreateSpecificCulture("en-US")));
+//             Console.WriteLine(money.ToString("C", CultureInfo.CreateSpecificCulture("eu-DE")));
+//         }
+//     }
+// }
+
+
+//TryParse
+namespace tryParse
 {
     class Program
     {
         static void Main(string[] args)
         {
-            double value = 1000D / 12.34D;
-            Console.WriteLine(value);
-            Console.WriteLine(string.Format("{0} {1}", value, 1000));
+            bool success = true;
+
+            while (success)
+            {
+                Console.WriteLine("Enter a number: ");
+                string numInput = Console.ReadLine();
+                // int num = Convert.ToInt32(numInput);
+                // int num = 0;  //in case the TryParse is used
+
+                // Console.WriteLine(num);   // this cannot deal with the clien accidentally entering a letter, as it will crash the program
+
+                // bool success = int.TryParse(numInput, out num);  //this will put the value of numInput into num without the above conversion, and if the user enters a letter, it will alo not crash.
+
+                if (int.TryParse(numInput, out int num))   //we integrated this line in the condition: int num = 0;
+                {
+                    success = false;       //this will stop the loop
+                    Console.WriteLine(num);
+                }
+                else
+                {
+                    Console.WriteLine("Failed to convert!");
+                }
+
+            }
+            
         }
     }
 }
