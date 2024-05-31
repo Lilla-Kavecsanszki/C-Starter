@@ -1,10 +1,10 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.Generic;  //this is needed for the Lists and Dictionaries
+using System.Globalization;   //this is needed for the currency formatting
+using System.Linq;   //this is needed for the sorting of the arrays and lists
+using System.Text;   //this is needed for the string manipulation and formatting 
+using System.Threading.Tasks;   //this is needed for the Thread.Sleep function
 
 // namespace HelloWorld
 // {
@@ -878,43 +878,391 @@ using System.Threading.Tasks;
 
 
 //Exercise 3
-namespace PasswordChecker
+// namespace PasswordChecker
+// {
+//     class Program
+//     {
+//         static void Main(string[] args)
+//         {
+//             /* Ask user to enter password, and store,
+//                Ask user to enter password again, and store,
+//                Check if they are both contain something
+//                  If so check if they are the same
+//                    if they are, print "Password match"
+//                    if they are not print "Password do not match"
+//                 If they are empty, print "Please enter a password!" */
+
+//             Console.WriteLine("Enter your password: ");
+//             string password = Console.ReadLine();
+
+//             Console.WriteLine("Enter your password again: ");
+//             string passwordAgain = Console.ReadLine();
+
+//             if (!string.IsNullOrEmpty(password) && !string.IsNullOrEmpty(passwordAgain))  //would we get the same result if we used .Empty? - yes
+//             {
+//                 if (password.Equals(passwordAgain))
+//                 {
+//                     Console.WriteLine("Password match!");
+//                 }
+//                 else
+//                 {
+//                     Console.WriteLine("Password do not match!");
+//                 }
+//             }
+//             else
+//             {
+
+//                 Console.WriteLine("Please enter a password!");
+//             }
+            
+//         }
+//     }
+// }
+
+
+//ARRAYS
+// namespace arrays
+// {
+//     class Program
+//     {
+//         static void Main(string[] args)
+//         {
+            // int num1 = 5;
+            // int num2 = 10;
+            // int num3 = 15;
+            // int num4 = 30;
+            //angles
+
+            // int total = num1 + num2 + num3;
+
+            // int angleSum = angle1 + angle2 + angle3;
+
+            // if (angleSum == 180)
+            // {
+            //     Console.WriteLine("Valid");
+            // }
+            // else
+            // {
+            //     Console.WriteLine("Invalid");
+            // }
+            // console.writeline(angleSum == 180 ? "valid" : "invalid")
+
+            // const int angleCount = 3;
+            // int[] angles = new int[angleCount];  //this is an array of 3 integers
+
+            // for (int i = 0; i < angleCount; i++)
+            // {
+            //     Console.Write($"Enter angle {i}: ");
+            //     angles[i] = Convert.ToInt32(Console.ReadLine());
+            // }
+            
+            // int angleSum = 0;
+
+            // foreach (int angle in angles)
+            // {
+            //     angleSum += angle;
+            // }
+
+            // Console.WriteLine(angleSum);
+
+            // Console.WriteLine(angleSum == 180 ? "valid" : "invalid");
+
+            // int[] numbers = new int[5];  //this is an array of 3 integers
+
+            // Console.Write("Enter a number: ");
+            // numbers[0] = Convert.ToInt32(Console.ReadLine());
+
+            // Console.Write("Enter a number: ");
+            // numbers[1] = Convert.ToInt32(Console.ReadLine());
+
+            // Console.Write("Enter a number: ");
+            // numbers[2] = Convert.ToInt32(Console.ReadLine());
+
+            // Console.Write("Enter a number: ");
+            // numbers[3] = Convert.ToInt32(Console.ReadLine());
+            
+            // Console.Write("Enter a number: ");
+            // numbers[4] = Convert.ToInt32(Console.ReadLine());
+
+            // Console.WriteLine($"{num1} {num2} {num3}");
+            // Console.WriteLine($"{numbers[0]} {numbers[1]} {numbers[2]}");
+
+            // for (int i = 0; i < numbers.Length; i++)
+            // {
+            //     Console.Write("Enter a number: ");
+            //     numbers[i] = Convert.ToInt32(Console.ReadLine());
+            // }
+
+            // for (int i = 0; i < numbers.Length; i++)       //here you can make a selection of the numbers you want to go through and itereate 
+            // {
+            //     Console.WriteLine(numbers[i]);
+            // }
+
+            // Console.WriteLine();
+
+            // foreach (int num in numbers)
+            // {
+            //     Console.WriteLine($"{num} ");    //this is the same as the for loop above, however this solution is 
+            //                                     // better if you definitely want to go through all the elements in the array
+            // }
+//         }
+//     }
+// }
+
+
+// Array sorting
+// namespace arraySorting
+// {
+//     class Program
+//     {
+//         static void Main(string[] args)
+//         {
+//             int[] numbers = new int[]
+//             {
+//                 1, 2, 3, 4, 6, 5, 7, 8, 9
+//             };
+
+//             string test = "";
+//             test.Replace(" ", "");   //this will remove all the spaces from the string 
+
+//             Array.Sort(numbers);  //this will sort the array in ascending order
+
+//             foreach (int num in numbers)
+//             {
+//                 Console.Write($"{num} ");
+//             }
+//         }
+//     }
+// }
+
+
+// Array reversal
+// namespace Reverse
+// {
+//     class Program
+//     {
+//         static void Main(string[] args)
+//         {
+//             int[] numbers = new int[]
+//             {
+//                 1, 2, 3, 4, 5, 6, 7, 8, 9
+//             };
+
+//             Array.Reverse(numbers);
+
+//             foreach (var item in numbers)
+//             {
+//                 Console.Write($"{item} ");
+//             }
+//         }
+
+//     }
+// }
+
+
+// Array clearing
+// namespace Clear
+// {
+//     class Program
+//     {
+//         static void Main(string[] args)
+//         {
+//             int[] numbers = new int[]
+//             {
+//                 1, 2, 3, 4, 5, 6, 7, 8, 9
+//             };
+
+//             // Array.Clear(numbers, 0, numbers.Length);  //this will clear the array from the 0th element to the end of the array
+//             Array.Clear(numbers, 4, 3);    //this will clear 3 following elements of the array from the 4th element (not included) 
+
+//             // for (int i = 0; i < numbers.Length; i++)
+//             // {
+//             //     numbers[i] = default;         //this will clear the array from the 0th element to the end of the array in the same way as the Array.Clear
+//             // }
+
+//             foreach (var item in numbers)
+//             {
+//                 Console.Write($"{item} ");
+//             }
+//         }
+//     }
+// }
+
+
+// Array IndexOf
+// namespace IndexOf
+// {
+//     class Program
+//     {
+//         static void Main(string[] args)
+//         {
+//             int[] numbers = new int[]
+//             {
+//                 90, 199, 22, 50, 30
+//             };
+
+//             System.Console.WriteLine("Enter number to search for: ");
+//             int search = Convert.ToInt32(Console.ReadLine());
+
+            // int position = Array.IndexOf(numbers, search);  //the parameters are the array and the value we are looking for
+            // int position = Array.IndexOf(numbers, search, 2);   //this will start the search from the 2nd element (as in position) of the array
+            // int position = Array.IndexOf(numbers, search, 0, 2);  //this will search for the value in the first 2 elements of the array
+
+            // if (position > -1)
+            // {
+            //     System.Console.WriteLine($"Number {search} has been found at position {position}.");
+            // }
+            // else
+            // {
+            //     System.Console.WriteLine("Not found.");
+            // }
+
+            // int position = -1;
+
+            // for (int i = 0; i < numbers.Length; i++)
+            // {
+            //     if (numbers[i] == search)
+            //     {
+            //         position = i;
+            //     }
+
+            //     if (position > -1)
+            //     {
+            //         System.Console.WriteLine($"Number {search} has been found at position {position}.");
+            //     }
+            //     else
+            //     {
+            //         System.Console.WriteLine("Not found.");
+            //     }
+//         }
+//     }
+// }
+
+
+// List <>
+// namespace List
+// {
+//     class Program
+//     {
+//         static void Main(string[] args)
+//         {
+//             int[] numbers = new int[]
+//             {
+//                 1, 2, 3
+//             };
+//             // numbers[0] = 1;
+//             // numbers[1] = 2;
+//             // numbers[2] = 3;
+
+//             List<int> Listnumbers = new List<int>();
+
+//             // Listnumbers.Add(1);
+//             // Listnumbers.Add(2);
+//             // Listnumbers.Add(3);
+
+//             for (int i = 0; i < 3; i++)
+//             {
+//                 Console.Write("Enter a number: ");
+//                 // int num = Convert.ToInt32(Console.ReadLine());
+//                 // Listnumbers.Add(num);
+//                 Listnumbers.Add(Convert.ToInt32(Console.ReadLine()));
+//             }
+
+//             for (int i = 0; i < Listnumbers.Count; i++)   //because the List is a dynamic array, we can use the Count property instead of the Length
+//                                                           //we dont have its actual length, but we can get the number of elements in the List
+//             {
+//                 Console.WriteLine(Listnumbers[i]);
+//             }
+
+//             Listnumbers.RemoveAt(0);   //this will remove the first element of the List
+
+//             Console.WriteLine();
+
+//             foreach (var item in Listnumbers)
+//             {
+//                 Console.WriteLine(item);
+//             }
+//         }
+//     }
+// }
+
+
+// Dictionary
+// namespace DictionaryApp
+// {
+//     class Program
+//     {
+//         static void Main(string[] args)
+//         {
+            // Dictionary<int, string> names = new Dictionary<int, string>();
+
+            // names.Add(1, "Lilla");
+            // names.Add(2, "Federico");
+            // names.Add(3, "Gina");
+
+
+            // Dictionary<int, string> names = new Dictionary<int, string>
+            // {
+            //     //KeyValuePair<int, string> pair = new KeyValuePair<int, string>(1, "Lilla");
+            //     {1, "Lilla"},
+            //     {2, "Federico"},
+            //     {3, "Gina"}
+            // };
+
+            // // Using foreach loop
+            // foreach (var item in names)
+            // {
+            //     Console.WriteLine($"{item.Key} - {item.Value}");
+            // }
+
+            // // Using for loop with ElementAt
+            // for (int i = 0; i < names.Count; i++)   //same as Lists, Dictionaries also dont have a fix length, so we can use the Count property
+            // {
+            //     KeyValuePair<int, string> pair = names.ElementAt(i);   //this will give us the key and the value of the element at the i position
+            //     Console.WriteLine($"{pair.Key} - {pair.Value}");
+
+            //     // pair.Key;
+            //     // pair.Value;
+            // }
+
+//             Dictionary<string, string> teachers = new Dictionary<string, string>
+//             {
+//                 {"C#", "Lilla"},
+//                 {"Java", "Federico"},
+//                 {"Python", "Gina"}
+//             };
+
+//             teachers.Remove("Java");
+
+//             foreach (var item in teachers)
+//             {
+//                 Console.WriteLine($"{item.Key} - {item.Value}");
+//             }
+
+//             Console.WriteLine(teachers["C#"]);
+
+//             if (teachers.TryGetValue("C#", out string teacher))    //almost like a TryParse, but here we are trying to get the value of the key
+//             {
+//                 Console.WriteLine(teacher);
+//                 teachers["C#"] = "Lilla Szabo";
+//             }
+//             else
+//             {
+//                 Console.WriteLine("The C# teacher is not found.");
+//             }
+
+//             Console.WriteLine(teachers["C#"]);
+//         }
+//     }
+// }
+
+
+// Exercise: Odd/ Even Number Split
+namespace DictionaryApp
 {
     class Program
     {
         static void Main(string[] args)
-        {
-            /* Ask user to enter password, and store,
-               Ask user to enter password again, and store,
-               Check if they are both contain something
-                 If so check if they are the same
-                   if they are, print "Password match"
-                   if they are not print "Password do not match"
-                If they are empty, print "Please enter a password!" */
-
-            Console.WriteLine("Enter your password: ");
-            string password = Console.ReadLine();
-
-            Console.WriteLine("Enter your password again: ");
-            string passwordAgain = Console.ReadLine();
-
-            if (!string.IsNullOrEmpty(password) && !string.IsNullOrEmpty(passwordAgain))  //would we get the same result if we used .Empty? - yes
-            {
-                if (password.Equals(passwordAgain))
-                {
-                    Console.WriteLine("Password match!");
-                }
-                else
-                {
-                    Console.WriteLine("Password do not match!");
-                }
-            }
-            else
-            {
-
-                Console.WriteLine("Please enter a password!");
-            }
-            
-        }
+        {}
     }
 }
