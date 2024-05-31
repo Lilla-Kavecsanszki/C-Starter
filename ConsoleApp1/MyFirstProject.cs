@@ -1258,11 +1258,81 @@ using System.Threading.Tasks;   //this is needed for the Thread.Sleep function
 
 
 // Exercise: Odd/ Even Number Split
-namespace DictionaryApp
+// namespace Split
+// {
+//     class Program
+//     {
+//         /* Create 2 lists with integer data type, one for even numbers, one for odd
+//         loop from 0-20
+//             if number is even, add to even list
+//             if number is odd, add to odd list
+//         print even list
+//         print odd list */
+//         static void Main(string[] args)
+//         {
+//             List<int> odd = new List<int>();
+//             List<int> even = new List<int>();
+
+//             for (int i = 0; i <= 1000; i++)
+//             {
+//                 if (i % 2 == 0)
+//                 {
+//                     even.Add(i);
+//                 }
+//                 else
+//                 {
+//                     odd.Add(i);
+//                 }
+//             }
+
+//             System.Console.WriteLine("Printing even numbers: ");
+
+//             foreach (var item in even)
+//             {
+//                 System.Console.Write($"{item} ");
+//             }
+
+//             System.Console.WriteLine();
+
+//             System.Console.WriteLine("Printing odd numbers: ");
+
+//             foreach (var item in odd)
+//             {
+//                 System.Console.Write($"{item} ");
+//             }
+//         }
+//     }
+// }
+
+
+// Exercise: Array of Multiples
+namespace Multiples
 {
     class Program
     {
+        /* Define and initialize 2 integers (num and length)
+           (7, 5) -> [7, 14, 21, 28, 35] 
+           Create int array with size lenght
+           loop through and insert the (loop counter x num) into the array 
+           print the final array */
         static void Main(string[] args)
-        {}
+        {
+            int num = 7;
+            int length = 5;
+            int[] result = new int[length];
+            
+            int counter = 0;
+
+            for (int i = 1; i <= result.Length; i++, counter++)
+            {
+                result[counter] = num * i;
+                // counter++;
+            }
+
+            foreach (var item in result)
+            {
+                System.Console.Write($"{item} ");
+            }
+        }
     }
 }
