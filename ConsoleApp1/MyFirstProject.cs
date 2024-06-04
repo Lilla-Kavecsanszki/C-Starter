@@ -1401,11 +1401,80 @@ using System.Threading.Tasks;   //this is needed for the Thread.Sleep function
 
 
 // Return Type Functions
-namespace ReturnType
+// namespace ReturnType
+// {
+//     class Program
+//     {
+//         // static string name = "Lilla";   //this is a global variable, because it is outside of the Main function, 
+//                                         //so it can be accessed from anywhere in the class
+//         static void Main(string[] args)
+//         {
+//             Console.Title = $"{ReturnName()} - {ReturnAge()}";  //instead of the global 'name;'   //this will change the title of the console window to the value of the name variable
+//             PrintIntroduction();
+//         }
+
+//         static string ReturnName()
+//         {
+//             return "Lilla";   //this is a return type function, because it returns a value
+//         }
+
+//         static int ReturnAge()
+//         {
+//             return 34;
+//         }
+
+//         static void PrintIntroduction()
+//         {
+//             // string name = ReturnName();   //also could be, if we want to store the function in a variable first: string name = name; 
+//             // System.Console.WriteLine($"{ReturnName()} - {ReturnAge()}");   //again, instead of the global '(name)'
+
+//             //OR
+
+//             string name = ReturnName();
+//             string age = ReturnAge().ToString();  //we have to convert the int to a string, because the WriteLine function only accepts strings
+//             string output = $"Hello my name is {name} and my age is {age}.";
+//             System.Console.WriteLine(output);
+
+//             System.Console.WriteLine($"Hello my name is {ReturnName()} and my age is {ReturnAge()}."); //this is the same as above, however we can 
+//                                                   //simply change the values and avoid repetition - DRY principle 
+//         }
+//     }
+// }
+
+
+//Function Parameters
+namespace Parameters
 {
     class Program
     {
         static void Main(string[] args)
-        {}
+        {
+            System.Console.WriteLine(Add(5, 10));  //this is how we call a function with parameters, because it takes in values
+
+            /* System.Console.WriteLine("Enter a number: ");
+            int number = Convert.ToInt32(Console.ReadLine()); */
+
+            int num = ReadInt("number");  //this is how we call a function with parameters, because it takes in values
+            System.Console.WriteLine(num);
+
+            int angle = ReadInt("angle");  //What are angles? - angles are the values of the corners of a shape  
+            System.Console.WriteLine(angle);
+
+            int firstNum = ReadInt("first number");
+            int secondNum = ReadInt("second number");
+            int result = Add(firstNum, secondNum);
+            System.Console.WriteLine(result);
+        }
+
+        static int ReadInt(string message)
+        {
+            System.Console.WriteLine($"Enter a {message}: ");
+            return Convert.ToInt32(Console.ReadLine());
+        }
+
+        static int Add(int a, int b)   //this is a function with parameters, because it takes in values
+        {
+            return a + b;
+        }
     }
 }
