@@ -1306,33 +1306,106 @@ using System.Threading.Tasks;   //this is needed for the Thread.Sleep function
 
 
 // Exercise: Array of Multiples
-namespace Multiples
+// namespace Multiples
+// {
+//     class Program
+//     {
+//         /* Define and initialize 2 integers (num and length)
+//            (7, 5) -> [7, 14, 21, 28, 35] 
+//            Create int array with size lenght
+//            loop through and insert the (loop counter x num) into the array 
+//            print the final array */
+//         static void Main(string[] args)
+//         {
+//             int num = 7;
+//             int length = 5;
+//             int[] result = new int[length];
+            
+//             int counter = 0;
+
+//             for (int i = 1; i <= result.Length; i++, counter++)
+//             {
+//                 result[counter] = num * i;
+//                 // counter++;
+//             }
+
+//             foreach (var item in result)
+//             {
+//                 System.Console.Write($"{item} ");
+//             }
+//         }
+//     }
+// }
+
+
+// Functions
+// namespace Function
+// {
+//     class Test
+//     {
+//         public static void something()
+//         {
+//             System.Console.WriteLine("Hello");
+//         }
+//     }
+//     class Program
+//     {
+//         static void Main(string[] args)   //in every .NET framework, every C# application is expected to have a Main function, otherwise it will not run
+        // {
+            // Test.something();  //this is how we call a function from another class - Test, we could call it this way, because it is a static function and 
+                               //we also put the public keyword in front of it
+
+            // Test test = new Test();  //this is how we create an object from a class, we have to put this before calling a function from that class,
+            // test.something();        //because it was a void function, as this case we didnt put the static keyword in front of it
+
+//             WelcomeMessage();
+//             WelcomeMessage();
+//             WelcomeMessage();
+//         }
+
+//         static void WelcomeMessage()
+//         {
+//             System.Console.WriteLine("Welcome Lilla!");
+//         }
+//     }
+// }
+
+
+// Void Function
+// namespace Void
+// {
+//     class Program
+//     {
+//         static void Main(string[] args)
+//         {
+//             bool success = int.TryParse("123", out int result);
+//             System.Console.WriteLine(success);  // is this a void function? - no, because it returns(!) a value
+
+//             CreateAndPrintArray();   //this is a void function, because it does not return a (new) value - it just does something
+//         }
+
+//         static void CreateAndPrintArray()
+//         {
+//             int[] numbers = new int[]
+//             {
+//                 0, 1, 2, 3
+//             };
+
+//             foreach (var item in numbers)
+//             {
+//                 System.Console.WriteLine($"{item} ");
+//             }
+//         }
+//     }
+// }
+
+
+// Return Type Functions
+namespace ReturnType
 {
     class Program
     {
-        /* Define and initialize 2 integers (num and length)
-           (7, 5) -> [7, 14, 21, 28, 35] 
-           Create int array with size lenght
-           loop through and insert the (loop counter x num) into the array 
-           print the final array */
         static void Main(string[] args)
-        {
-            int num = 7;
-            int length = 5;
-            int[] result = new int[length];
-            
-            int counter = 0;
-
-            for (int i = 1; i <= result.Length; i++, counter++)
-            {
-                result[counter] = num * i;
-                // counter++;
-            }
-
-            foreach (var item in result)
-            {
-                System.Console.Write($"{item} ");
-            }
-        }
+        {}
     }
 }
