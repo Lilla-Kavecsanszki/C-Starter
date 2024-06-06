@@ -1670,12 +1670,117 @@ using System.Threading.Tasks;   //this is needed for the Thread.Sleep function
 // 
 
 
-//Exercise
+//Exercise Area of a triangle
+// namespace Exercise
+// {
+//     class Program
+//     {
+//         /* Ask user for width and height, store them
+//            Create function to calculate the area
+//            (width * height) / 2)
+//            Call in main and print out the area of the triangle */
+//         static void Main(string[] args)
+//         {
+//             int width = ReadInt("Enter the width of the triangle: ");
+//             int height = ReadInt("Enter the height of the triangle: ");
+
+//             // System.Console.WriteLine(width);
+//             // System.Console.WriteLine(height);
+
+//             int area = CalculateArea(width, height);
+//             System.Console.WriteLine($"The area of the triangle is {area}.");
+//         }
+
+//         static int CalculateArea(int width, int height)
+//         {
+//             return (width * height) / 2;
+//         }
+
+//         static int ReadInt(string message)
+//         {
+//             System.Console.WriteLine(message);
+//             return Convert.ToInt32(Console.ReadLine());
+//         }
+//     }
+// }
+
+
+//Exercise Sum of Int Array
 namespace Exercise
 {
     class Program
     {
+        /* Create and initialize an int array of numbers
+           Create function with SumOfNumbers with the int return type
+           int array param
+           function should return total of all numbers
+           call in main and output the total
+           extra: check array lenght
+               - return -1 if array is empty
+               - check return in main and output message
+               - do we need to return -1, how else can we solve this? */
         static void Main(string[] args)
-        {}
+        {
+            int[] numbers = new int[]  //int[] numbers = new int[0];  <- this would be an empty array, will return -1
+            {
+                1, 2, 3, 4, 5
+            };
+
+            int result = SumOfNumbers(numbers);
+
+            if (result > -1)
+            {
+                System.Console.WriteLine($"The total is {result}.");
+            }
+            else
+            {
+                System.Console.WriteLine("Cannot add up an empty array!");
+            }
+
+            if (SumOfNumbers(numbers, out int total))
+            {
+                System.Console.WriteLine($"The total is {result}.");
+            }
+            else
+            {
+                System.Console.WriteLine("Cannot add up an empty array!");
+            }
+
+            // System.Console.WriteLine($"The total is {SumOfNumbers(numbers)}.");
+        }
+
+        static int SumOfNumbers(int[] numbers)
+        {
+            if (numbers.Length > 0)
+            {
+                int total = 0;
+
+            foreach (var item in numbers)
+            {
+                total += item;
+            }
+
+            return total;
+            }
+
+            return -1;
+        }
+
+        static bool SumOfNumbers(int[] numbers, out int total)
+        {
+            total = 0;
+
+            if (numbers.Length > 0)
+            {
+            foreach (var item in numbers)
+            {
+                total += item;
+            }
+
+            return true;
+            }
+
+            return false;
+        }
     }
 }
