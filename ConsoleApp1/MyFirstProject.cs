@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;  //this is needed for the Lists and Dictionaries
 using System.Globalization;   //this is needed for the currency formatting
 using System.Linq;   //this is needed for the sorting of the arrays and lists
+using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;   //this is needed for the string manipulation and formatting 
 using System.Threading.Tasks;   //this is needed for the Thread.Sleep function
 
@@ -1443,38 +1445,237 @@ using System.Threading.Tasks;   //this is needed for the Thread.Sleep function
 
 
 //Function Parameters
-namespace Parameters
+// namespace Parameters
+// {
+//     class Program
+//     {
+//         static void Main(string[] args)
+//         {
+//             System.Console.WriteLine(Add(5, 10));  //this is how we call a function with parameters, because it takes in values
+
+//             /* System.Console.WriteLine("Enter a number: ");
+//             int number = Convert.ToInt32(Console.ReadLine()); */
+
+//             int num = ReadInt("number");  //this is how we call a function with parameters, because it takes in values
+//             System.Console.WriteLine(num);
+
+//             int angle = ReadInt("angle");  //What are angles? - angles are the values of the corners of a shape  
+//             System.Console.WriteLine(angle);
+
+//             int firstNum = ReadInt("first number");
+//             int secondNum = ReadInt("second number");
+//             int result = Add(firstNum, secondNum);
+//             System.Console.WriteLine(result);
+//         }
+
+//         static int ReadInt(string message)
+//         {
+//             System.Console.WriteLine($"Enter a {message}: ");
+//             return Convert.ToInt32(Console.ReadLine());
+//         }
+
+//         static int Add(int a, int b)   //this is a function with parameters, because it takes in values
+//         {
+//             return a + b;
+//         }
+//     }
+// }
+
+
+//Optional Parameters
+// namespace OptionalParameters
+// {
+//     class Program
+//     {
+//         static void Main(string[] args)
+//         {
+//             int result = Add(5);
+//             System.Console.WriteLine(result);
+//         }
+
+        // static int Add(int a, int b = 50)  //this is a function with optional parameters, because it has a default value
+                                           //if like above 'b' is not specified in Add's parameters, it will take the default value (50).
+        // {
+        //     return a + b;
+        // }
+
+        // static int Add(int a, [Optional] int b)  //this is a function with optional parameters, because it has a default value
+        // static int Add(int a, int b = default)  //exact same as above, but with the default keyword
+//         {
+//             System.Console.WriteLine($"a: {a}, b: {b}");  //'b' is 0, as a default because it is not specified in the parameters
+//             return a + b;
+//         }
+//     }
+// }
+
+
+//Named Parameters
+// namespace NamedParameters
+// {
+//     class Program
+//     {
+//         static void Main(string[] args)
+//         {
+//             string nameInput = "Lilla";
+//             int ageInput = 34;
+//             string addressInput = "Firenze";
+
+//             PrintDetails(name:nameInput, age:ageInput, address:addressInput);
+//         }
+
+//         static void PrintDetails(string name, int age, string address)
+//         {
+//             System.Console.WriteLine($"Name: {name}");
+//             System.Console.WriteLine($"Age: {age}");
+//             System.Console.WriteLine($"Address: {address}");
+//         }
+//     }
+// }
+
+
+//Out Parameters
+// namespace OutParameters
+// {
+//     class Program
+//     {
+//         static void Main(string[] args)
+//         {
+//             int num;
+//             bool success = test(out num);  // Using the out parameter to get the value and the success status
+//             Console.WriteLine(num);        // Output should be 5
+//             Console.WriteLine(success);    // Output should be True
+
+//             // int num = 0;
+//             // num = test(num); 
+//             // bool success = test(out num);  //out parameters are used when we want to return more than one value from a function. 
+//                                         // so both 5 and True in this case are returned from the test function
+//             System.Console.WriteLine(num);
+//             System.Console.WriteLine(success);
+
+//             List<string> shoppingList = new List<string>
+//             {
+//                 "Coffee", "Milk"
+//             };
+
+//             System.Console.WriteLine(shoppingList.IndexOf("Coffe"));
+//             // System.Console.WriteLine(findInList("Milk", shoppingList, out int index));
+//             // System.Console.WriteLine(index);
+
+//             System.Console.WriteLine("Enter an item to search for: ");
+//             string search = Console.ReadLine();
+
+//             if (findInList(search, shoppingList, out int index))
+//             {
+//                 System.Console.WriteLine($"Found {search} at index {index}");
+//             }
+//             else
+//             {
+//                 System.Console.WriteLine("Not found");
+//             }
+
+//             // int index = -1;  //-1 is the default value for the IndexOf function, if the value is not found in the List
+
+//         //     for (int i =0; i < shoppingList.Count; i++)
+//         //     {
+//         //         if (shoppingList[i].ToLower().Equals("milk"))
+//         //         {
+//         //             index = i;
+//         //         }
+//         //     } 
+//             // System.Console.WriteLine(index);
+
+//             // bool found = index > -1;
+//             // System.Console.WriteLine(found? "Found" : "Not found");
+//         }
+
+//         static bool findInList(string s, List<string> list, out int index)
+//         {
+//             index = -1;
+
+//             for (int i = 0; i < list.Count; i++)
+//             {
+//                 if (list[i].ToLower().Equals(s.ToLower()))
+//                 {
+//                     index = i;
+//                 }
+//             }
+
+//             return index > -1;
+//         }
+
+//         static bool TryParse(string s, out int result)
+//         {
+//             {
+//                 result = 0;
+//                 return true;
+//             }
+//         }
+
+//         // static int test(int num)
+//         static bool test(out int num)
+//         {
+//             num = 5;
+//             return true;
+//         }
+//     }
+// }
+
+
+//Reference Parameters
+// namespace Ref
+// {
+//     class Program
+//     {
+//         static void Main(string[] args)
+//         {
+//             // int num = 10;
+//             // Assign(ref num);  //with putting the ref keyword in front of the variable, we are passing the reference of the variable, so the value of the variable can be changed
+//             // // num = Assign();
+
+//             // System.Console.WriteLine(num);  //this will print 10, because the value of the variable num is not changed in the Assign function
+        
+//             string name = "Joe";
+
+//             System.Console.WriteLine("Enter your new name: ");
+//             string newName = Console.ReadLine();
+            
+//             if (ChangeName(ref name, newName))
+//             {
+//                 System.Console.WriteLine($"Your new name is {name}!");
+//             }
+//             else
+//             {
+//                 System.Console.WriteLine("New name cannot be empty or null!");
+//             }
+//         }
+
+//         static bool ChangeName(ref string name, string newName)
+//         {
+//             if (!string.IsNullOrEmpty(newName))
+//             {
+//                 name = newName;
+//                 return true;
+//             }
+//             return false;
+//         }
+
+//         static void Assign(ref int num)  
+//         {
+//         {
+//             num = 20;  //when using the ref keyword, you dont necessarily have to assign a value to the variable, can also leave it empty
+//             // return 20;
+//         }
+//         }
+//     }
+// 
+
+
+//Exercise
+namespace Exercise
 {
     class Program
     {
         static void Main(string[] args)
-        {
-            System.Console.WriteLine(Add(5, 10));  //this is how we call a function with parameters, because it takes in values
-
-            /* System.Console.WriteLine("Enter a number: ");
-            int number = Convert.ToInt32(Console.ReadLine()); */
-
-            int num = ReadInt("number");  //this is how we call a function with parameters, because it takes in values
-            System.Console.WriteLine(num);
-
-            int angle = ReadInt("angle");  //What are angles? - angles are the values of the corners of a shape  
-            System.Console.WriteLine(angle);
-
-            int firstNum = ReadInt("first number");
-            int secondNum = ReadInt("second number");
-            int result = Add(firstNum, secondNum);
-            System.Console.WriteLine(result);
-        }
-
-        static int ReadInt(string message)
-        {
-            System.Console.WriteLine($"Enter a {message}: ");
-            return Convert.ToInt32(Console.ReadLine());
-        }
-
-        static int Add(int a, int b)   //this is a function with parameters, because it takes in values
-        {
-            return a + b;
-        }
+        {}
     }
 }
