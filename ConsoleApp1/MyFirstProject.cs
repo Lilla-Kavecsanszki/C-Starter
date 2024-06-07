@@ -1895,3 +1895,110 @@ using System.Threading.Tasks;   //this is needed for the Thread.Sleep function
 //     }    
 // }
 
+
+//Debugging
+// namespace Debugging
+// {
+//     class Program
+//     {
+//         static void Main(string[] args)
+//         {
+//             int age = 34;
+//             if (age > 18)
+//             {
+//                 System.Console.WriteLine(("18+ "));
+//             }
+//             else if (age > 30)
+//             {
+//                 System.Console.WriteLine("35+ ");
+//             }
+//         }
+//     }
+// }
+
+
+//Object Oriented Programming 
+//Structures - they store data, but they are value types, so they are stored in the stack. They can store different types of data in one structure
+//what is the equivalent of a struct in JavaScript? - an object, and in Python? - a dictio
+//but then what is the equivalent of a dictionary in pyth
+// so both C# struct and dictionary are equivalent to a Python dictionary? 
+namespace Structures
+{
+    class Program
+    {
+        struct Person 
+        {
+            public string name;  //with the public keyword, we can access the name variable from outside of the struct, otherwise we could not if it's private
+            public int age;
+            public int birthMonth;
+
+            public Person(string name, int age, int birthMonth)  //this is a constructor, it is a function that is called when we create an instance of the struct
+            {
+                this.name = name;  //this keyword is a reference to the current instance of the struct, 
+                                    //so it is referring to the global variables above, not the local one inside this function
+                this.age = age;
+                this.birthMonth = birthMonth;
+            }
+        }
+        static void Main(string[] args)
+        {
+            string name = "Lilla";
+            int age = 34;
+
+            // Person person;  //created an instance of the struct. Instance is an object of the struct - basically a variable of the struct
+            // person.name = "Lilla";
+            // person.age = 34;
+            // person.birthMonth = 5;
+
+            // System.Console.WriteLine($"{name} - {age}");  //these are coming from the local variables above
+
+            // string newName = ReturnPerson(out int newAge);  
+            // System.Console.WriteLine($"{newName} - {newAge}");  //due to created instance of the struct, these are also local variables
+
+            Person person = ReturnPerson();
+            System.Console.WriteLine($"{person.name} - {person.age} - {person.birthMonth}");  //these are coming from the struct
+        }
+
+        // static string ReturnPerson(out int age)  //string function with an out parameter that is going to return an integer
+        // {
+        //     Person person;
+        //     person.name = "Lilla";
+        //     person.age = 34;
+        //     person.birthMonth = 5;
+
+        //     age = person.age;  //this is the out parameter, because we want to return the value of the age variable
+
+        //     return person.name;  //this is the return value of the function
+        // }
+        // {
+        //     System.Console.WriteLine("Enter your name: ");  //this is the local variable
+        //     string name = Console.ReadLine();
+
+        //     System.Console.WriteLine("Enter your age: ");
+        //     age = Convert.ToInt32(Console.ReadLine());   //this is the out parameter, because we want to return the value of the age variable
+
+        //     return name;   //this is the return value of the function
+        // }
+
+        static Person ReturnPerson()
+        {
+            System.Console.WriteLine("Enter your name: ");  
+            string name = Console.ReadLine();
+
+            System.Console.WriteLine("Enter your age: ");
+            int age = Convert.ToInt32(Console.ReadLine());
+
+            System.Console.WriteLine("Enter your birth month: ");
+            int birthMonth = Convert.ToInt32(Console.ReadLine());
+
+            /* Person person;  
+
+            person.name = name;
+            person.age = age;
+            person.birthMonth = birthMonth;
+
+            return person; */
+            return new Person(name, age, birthMonth);  //this is the same as above, but it is more common to use this way, because it is more readable
+        }
+    }
+}
