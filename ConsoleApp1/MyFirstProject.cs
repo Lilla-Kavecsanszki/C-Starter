@@ -1706,10 +1706,10 @@ using System.Threading.Tasks;   //this is needed for the Thread.Sleep function
 
 
 //Exercise Sum of Int Array
-namespace Exercise
-{
-    class Program
-    {
+// namespace Exercise
+// {
+//     class Program
+//     {
         /* Create and initialize an int array of numbers
            Create function with SumOfNumbers with the int return type
            int array param
@@ -1719,68 +1719,179 @@ namespace Exercise
                - return -1 if array is empty
                - check return in main and output message
                - do we need to return -1, how else can we solve this? */
-        static void Main(string[] args)
-        {
-            int[] numbers = new int[]  //int[] numbers = new int[0];  <- this would be an empty array, will return -1
-            {
-                1, 2, 3, 4, 5
-            };
+//         static void Main(string[] args)
+//         {
+//             int[] numbers = new int[]  //int[] numbers = new int[0];  <- this would be an empty array, will return -1
+//             {
+//                 1, 2, 3, 4, 5
+//             };
 
-            int result = SumOfNumbers(numbers);
+//             int result = SumOfNumbers(numbers);
 
-            if (result > -1)
-            {
-                System.Console.WriteLine($"The total is {result}.");
-            }
-            else
-            {
-                System.Console.WriteLine("Cannot add up an empty array!");
-            }
+//             if (result > -1)
+//             {
+//                 System.Console.WriteLine($"The total is {result}.");
+//             }
+//             else
+//             {
+//                 System.Console.WriteLine("Cannot add up an empty array!");
+//             }
 
-            if (SumOfNumbers(numbers, out int total))
-            {
-                System.Console.WriteLine($"The total is {result}.");
-            }
-            else
-            {
-                System.Console.WriteLine("Cannot add up an empty array!");
-            }
+//             if (SumOfNumbers(numbers, out int total))
+//             {
+//                 System.Console.WriteLine($"The total is {result}.");
+//             }
+//             else
+//             {
+//                 System.Console.WriteLine("Cannot add up an empty array!");
+//             }
 
-            // System.Console.WriteLine($"The total is {SumOfNumbers(numbers)}.");
-        }
+//             // System.Console.WriteLine($"The total is {SumOfNumbers(numbers)}.");
+//         }
 
-        static int SumOfNumbers(int[] numbers)
-        {
-            if (numbers.Length > 0)
-            {
-                int total = 0;
+//         static int SumOfNumbers(int[] numbers)
+//         {
+//             if (numbers.Length > 0)
+//             {
+//                 int total = 0;
 
-            foreach (var item in numbers)
-            {
-                total += item;
-            }
+//             foreach (var item in numbers)
+//             {
+//                 total += item;
+//             }
 
-            return total;
-            }
+//             return total;
+//             }
 
-            return -1;
-        }
+//             return -1;
+//         }
 
-        static bool SumOfNumbers(int[] numbers, out int total)
-        {
-            total = 0;
+//         static bool SumOfNumbers(int[] numbers, out int total)
+//         {
+//             total = 0;
 
-            if (numbers.Length > 0)
-            {
-            foreach (var item in numbers)
-            {
-                total += item;
-            }
+//             if (numbers.Length > 0)
+//             {
+//             foreach (var item in numbers)
+//             {
+//                 total += item;
+//             }
 
-            return true;
-            }
+//             return true;
+//             }
 
-            return false;
-        }
-    }
-}
+//             return false;
+//         }
+//     }
+// }
+
+
+//Exeption Handling
+// namespace Exeptions
+// {
+//     class Program
+//     {
+//         static void Main(string[] args)
+//         {
+//             //system.formatexception
+//             //system.overflowexception
+
+//             bool looping = true;
+
+//             while (looping)
+//             {
+//                 try
+//                 {
+//                     System.Console.WriteLine("Enter a number: ");
+//                     int num = Convert.ToInt32(Console.ReadLine());
+//                     System.Console.WriteLine(num);
+//                     looping = false;
+//                 }
+//                 catch (FormatException e)
+//                 {
+//                     System.Console.WriteLine($"Error: {e.Message}");
+//                 }
+//                 catch (OverflowException)
+//                 {
+//                     System.Console.WriteLine("Number is too large or too small!");
+//                 }
+//                 catch (Exception e) //e for exeption, is a local variable, we can name it anything, it holds the exeption message
+//                 {
+//                     // e.Message;   <- this is the message of the exeption, a feature of the exeption
+//                     System.Console.WriteLine($"Error: {e.Message}");  //this will print out the error message, always according to and 
+//                                                                      //specifically about the exeption, the current case.
+//                 }
+//             }
+
+//             System.Console.WriteLine("Goodbye!");
+//         }
+//     }
+// }
+
+
+//Exercise: Custom TryParse
+// namespace CustomTryParse
+// {
+//     class Program
+    // {
+        /* Create an int and try convert any string to an int
+        Notice the error, write a try..catch handle around it
+        Catch the error and output the error message
+        Without changing the current code
+        
+        Why is this a bad situation, and how do we know if it's been converted?
+        
+        Create a custom try parse function
+        Find the real function and and copy return type / params
+        Read the tooltip it gives you, to give you ideas on what to do */
+        // static void Main(string[] args)
+        // {
+            // bool success = false;
+
+            //     try
+            //     {
+            //         System.Console.WriteLine("Enter a number: ");
+            //         int num = Convert.ToInt32(Console.ReadLine());
+            //         success = true;
+            //     }
+            //     catch (FormatException e)
+            //         {
+            //             System.Console.WriteLine($"Error: {e.Message}");
+            //         }
+            //     catch (Exception e)
+            //     {
+            //         System.Console.WriteLine($"Error: {e.Message}");
+            //     }
+            
+            // System.Console.WriteLine(success ? "Yay" : "Oh no");
+
+//             System.Console.WriteLine("Enter a number: ");
+//             if (TryParse(Console.ReadLine(), out int result))  //what does this line mean? - it is calling the TryParse function, and if the 
+//                                                               //TryParse function returns true, it will store the value in the result variable
+//                                                               //okay, where is the true part? - the true part is in the TryParse function, if the 
+//                                                               //this out int result here, is instead of a Console.ReadLine, so it is the value that is returned from the TryParse function
+//             {
+//                 System.Console.WriteLine("Yay " + result);
+//             }
+//             else
+//             {
+//                 System.Console.WriteLine("Oh no!");
+//             }
+//         }
+
+//         static bool TryParse(string input, out int result)  //would it work the same if we say static int TryParse(string input, out int result)  //no, because we want to return a bool value, so we can check if the function was successful or not 
+//         {
+//             result = -1;
+//             try{
+//                 result = Convert.ToInt32(input);
+//                 return true;
+//             }
+//             catch (FormatException)
+//             {
+//                 // result = -1;  <- this assignment could be here also, the point is to have an assignment for both cases
+//                 return false;
+//             }
+//         }
+//     }    
+// }
+
