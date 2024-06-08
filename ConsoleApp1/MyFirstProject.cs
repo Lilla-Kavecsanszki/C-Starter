@@ -1922,28 +1922,28 @@ using System.Threading.Tasks;   //this is needed for the Thread.Sleep function
 //what is the equivalent of a struct in JavaScript? - an object, and in Python? - a dictio
 //but then what is the equivalent of a dictionary in pyth
 // so both C# struct and dictionary are equivalent to a Python dictionary? 
-namespace Structures
-{
-    class Program
-    {
-        struct Person 
-        {
-            public string name;  //with the public keyword, we can access the name variable from outside of the struct, otherwise we could not if it's private
-            public int age;
-            public int birthMonth;
+// namespace Structures
+// {
+//     class Program
+//     {
+//         struct Person 
+//         {
+//             public string name;  //with the public keyword, we can access the name variable from outside of the struct, otherwise we could not if it's private
+//             public int age;
+//             public int birthMonth;
 
-            public Person(string name, int age, int birthMonth)  //this is a constructor, it is a function that is called when we create an instance of the struct
-            {
-                this.name = name;  //this keyword is a reference to the current instance of the struct, 
-                                    //so it is referring to the global variables above, not the local one inside this function
-                this.age = age;
-                this.birthMonth = birthMonth;
-            }
-        }
-        static void Main(string[] args)
-        {
-            string name = "Lilla";
-            int age = 34;
+//             public Person(string name, int age, int birthMonth)  //this is a constructor, it is a function that is called when we create an instance of the struct
+//             {
+//                 this.name = name;  //this keyword is a reference to the current instance of the struct, 
+//                                     //so it is referring to the global variables above, not the local one inside this function
+//                 this.age = age;
+//                 this.birthMonth = birthMonth;
+//             }
+//         }
+//         static void Main(string[] args)
+//         {
+//             string name = "Lilla";
+//             int age = 34;
 
             // Person person;  //created an instance of the struct. Instance is an object of the struct - basically a variable of the struct
             // person.name = "Lilla";
@@ -1955,9 +1955,9 @@ namespace Structures
             // string newName = ReturnPerson(out int newAge);  
             // System.Console.WriteLine($"{newName} - {newAge}");  //due to created instance of the struct, these are also local variables
 
-            Person person = ReturnPerson();
-            System.Console.WriteLine($"{person.name} - {person.age} - {person.birthMonth}");  //these are coming from the struct
-        }
+        //     Person person = ReturnPerson();
+        //     System.Console.WriteLine($"{person.name} - {person.age} - {person.birthMonth}");  //these are coming from the struct
+        // }
 
         // static string ReturnPerson(out int age)  //string function with an out parameter that is going to return an integer
         // {
@@ -1980,16 +1980,16 @@ namespace Structures
         //     return name;   //this is the return value of the function
         // }
 
-        static Person ReturnPerson()
-        {
-            System.Console.WriteLine("Enter your name: ");  
-            string name = Console.ReadLine();
+        // static Person ReturnPerson()
+        // {
+        //     System.Console.WriteLine("Enter your name: ");  
+        //     string name = Console.ReadLine();
 
-            System.Console.WriteLine("Enter your age: ");
-            int age = Convert.ToInt32(Console.ReadLine());
+        //     System.Console.WriteLine("Enter your age: ");
+        //     int age = Convert.ToInt32(Console.ReadLine());
 
-            System.Console.WriteLine("Enter your birth month: ");
-            int birthMonth = Convert.ToInt32(Console.ReadLine());
+        //     System.Console.WriteLine("Enter your birth month: ");
+        //     int birthMonth = Convert.ToInt32(Console.ReadLine());
 
             /* Person person;  
 
@@ -1998,7 +1998,290 @@ namespace Structures
             person.birthMonth = birthMonth;
 
             return person; */
-            return new Person(name, age, birthMonth);  //this is the same as above, but it is more common to use this way, because it is more readable
+//             return new Person(name, age, birthMonth);  //this is the same as above, but it is more common to use this way, because it is more readable
+//         }
+//     }
+// }
+
+
+// Classes
+// namespace Constructor
+// {
+//     class Program
+//     {
+//         // struct Person
+//         // {
+//             // public string name;
+//             // public int age;
+
+//             // public Person(string name, int age)
+//             // {
+//             //     this.name = name;
+//             //     this.age = age;
+//             // }
+
+//             class Person
+//             {
+//                 public string name;
+//                 public int age;
+
+//                 public Person()
+//                 {}
+
+//                 public Person(string name)
+//                 {
+//                     this.name = name;
+//                     this.age = -1;
+//                 }
+
+//                 public Person(int age)
+//                 {
+//                     this.age = age;
+//                     this.name = "";
+//                 }
+
+//                 public Person(string name, int age)
+//                 {
+//                     this.name = name;
+//                     this.age = age;
+//                 }
+//             }
+//         static void Main(string[] args)  
+//         {
+//             System.Console.WriteLine("Enter your name: ");
+//             string name = Console.ReadLine();  
+//             System.Console.WriteLine("Enter your age: ");
+//             int age = Convert.ToInt32(Console.ReadLine());
+
+//             Person person = new Person(name, age);
+//             System.Console.WriteLine($"{person.name} - {person.age}");
+
+//             if (!string.IsNullOrEmpty(person.name))  //then it's not empty
+//             {
+//                 System.Console.WriteLine(person.name);  
+//             }
+//             if (person.age > -1)
+//             {
+//                 System.Console.WriteLine(person.age);
+//             }
+//         }
+//     }
+// }
+
+
+//Class Functions
+// namespace ClassFunctions
+// {
+//     class Program
+//     {
+//         //keep all related functions in the same class, and inside the class.. not separated underneath the Main function
+//         class Person{
+//             public string name;
+//             public int age;
+
+//             public Person(string name, int age)
+//             {
+//                 this.name = name;
+//                 this.age = age;
+//             }
+
+//             public string ReturnDetails()
+//             {
+//                 return $"Name: {name}\nAge: {age}";
+//             }
+//         }
+
+//         static void Main(string[] args)
+//         {
+//             Person person = new Person("Lilla", 34);
+//             // System.Console.WriteLine($"Name: {person.name}/nAge: {person.age}");
+//             System.Console.WriteLine(ReturnDetails(person));
+//             System.Console.WriteLine(person.ReturnDetails());  //this is calling the function from the class directly (the person class)
+//         }
+
+//         // static string ReturnDetails(string name, int age)
+//         // {
+//         //     return $"Name: {name}/nAge: {age}";
+//         // }
+
+//         static string ReturnDetails(Person person)
+//         {
+//             return $"Name: {person.name}\nAge: {person.age}";
+//         }
+//     }
+// }
+
+
+//Class Fields
+// namespace ClassFields
+// {
+//     class Program
+//     {
+//         //keep all related functions in the same class, and inside the class.. not separated underneath the Main function
+//         class Person{
+//             private string name;  //this is a global variable within this class, can also be called a field
+//                                   //can global variables always be called a field, in every situation? - no, only in classes
+//             private int age;
+
+//             public Person(string name, int age)  //is this a constructor? - yes, because it is a function that is called when we create an instance of the class
+//             {
+//                 this.name = name;
+//                 this.age = age;
+//             }
+
+//             public void SetName(string name)  //this is a function that sets the value of the name variable.
+//                                               //setter fucntion is needed here, because the name variable is private, so we cannot access it from outside of the class
+//             {
+//                 if (!string.IsNullOrEmpty(name))
+//                 {
+//                     this.name = name;  //this is the reference to the name variable in the class (the private one) to make it accessible from outside of the class
+//                 }
+//                 else
+//                 {
+//                     this.name = string.Empty;   // = ""; or "Invalid name"   <- so if it is empty, it will not assign the new value to the name variable but keep it empty
+//                 }
+//             }
+
+//             public void SetAge(int age)
+//             {
+//                 // if (age > 0 && age < 150)
+//                 // {
+//                 //     this.age = age;
+//                 // }
+//                 // else{
+//                 //     this.age = -1;  //just so we know that it is a bad value
+//                 // }
+
+//                 //with conditional operator
+//                 this.age = (age > 0 && age < 150) ? age : -1;
+//             }
+
+//             public string GetName()    //this is a function that returns the value of the name variable
+//             {
+//                 return name;
+//             }
+
+//             // public int GetAge()
+//             // {
+//             //     return age;;
+//             // }
+
+//             //with am arow function
+//             public int GetAge() => /*return*/ age;  //when using an arrow function, we put everything from the {} after the arrow, 
+//                                                     //with the arrow f. we also cannot use the return keyword, because it is implicit, so simply write the value
+
+//             public string ReturnDetails()
+//             {
+//                 return $"Name: {name}\nAge: {age}";
+//             }
+//         }
+
+//         static void Main(string[] args)
+//         {
+//             Person person = new Person("Lilla", 34);
+//             System.Console.WriteLine(person.ReturnDetails());  //this is calling the function from the class directly (the person class)
+
+//             // person.name = "Federico";  //here we can also reassign the value of variables in the class
+//             // person.age = 35;
+//             person.SetName("Federico");  //this is how we can change the value of the name variable, because it is private, through the setter function (in the class)
+//             person.SetAge(200);
+//             System.Console.WriteLine(person.ReturnDetails());
+
+//             System.Console.WriteLine($"Your name is {person.GetName()} and your age is {person.GetAge()}.");  //this is how we can get the value of the name variable, because it is private, through the getter function (in the class)
+//         }
+//     }
+// }
+
+//Class variable/ function scope 
+//what is the scope of the variables in the class? - the scope of the variables in the class is the class itself, 
+//so they can be accessed from anywhere in the class, but not from outside of the class, unless they are public or we use getter and setter functions
+//if i want to access and use a variable from another scope, in a different function, then I have to pass the variable as a parameter to the new function
+//if i want a variable to be accessable throughout the whole class, then i have to declare it on the top of the class, outside of any function
+//in case there are 2 variables with the same name in the class, the one that is declared in the function will be used, because it is the closest to the function
+//in other words, the program will always prioritize local variables over global variables
+//compile error - when the code is not correct, so it cannot be compiled, so it will not run
+
+
+//Class Properties
+namespace Properties
+{
+        class Person{
+            private string name;  
+                                  
+            private int age;
+
+            public string Name  //this is a property, it is a special type of function that is used to access a private field and
+                                 //behave as new middle men, completely replace the getter and setter functions
+                                //  {
+                                //     get {
+                                //         return name;  //this is the getter function, it is used to get the value of the name variable
+                                //     }
+                                //     set {
+                                //         name = value;  //give it (set) it to value, which is the value that is passed to the property, and a convention to use value
+                                //                        //we dont have to specify the type of the value, because it is the same as the type of the property, or its actual value either
+                                //     }
+                                //  }
+                                {
+                                    get => name;  //this is the same as above, but with arrow functions
+                                    set => name = !string.IsNullOrEmpty(value) ? value : "Invalid name";  
+                                }
+            public int Age
+            {
+                // get {
+                //     return age;
+                // }
+                // set {
+                //     age = value;
+                // }
+
+                get => age;
+                set => age = value >= 0 && value < 150 ? value : -1;
+            }
+
+            //with arrow functions
+            // public string Name {get => name; set => name = value; }  //this is the same as above, but with arrow functions
+            // public int Age {get => age; set => age = value; }
+
+            public Person(string name, int age)  //is this a constructor? - yes, because it is a function that is called when we create an instance of the class
+                                                 //constructor is a special type of function that is used to initialize the object, so it is called when we create an instance of the class
+            {
+                // this.name = name;
+                // this.age = age;
+
+                Name = name;  //this is how we can access the private field through the property
+                Age = age;
+            }
         }
+
+        class Program    //this is also a class, so we can have multiple classes in one file, but only one of them can be public
+                         //also only one can have the Main function, because it is the entry point of the program, this class
+                         //always have to be called Program, because it is the entry point of the program, convention
+        {
+            static void Main(string[] args)
+            {
+                Person person = new Person("Lilla", 34);   //so here 'Person' is an object of the class 'Person' so we can access the properties of the class through this object
+                
+                person.Name = "Federico";  //this is how we can change the value of the name variable, because it is private, through the property (in the class)   
+                person.Age = 35;
+                System.Console.WriteLine(person.Name);
+                System.Console.WriteLine($"Your name is {person.Name} and your age is {person.Age}."); 
+            }
+        }
+        
+}
+
+
+//Auto Properties
+
+namespace Auto
+{
+    class Person
+    {
+        public string Name { get; set; }  //this is an auto property, it is a property that does not have a private field, so it is automatically created
+                                         //it is a shorthand for the property, so it is a property that does not have a private field, so it is automatically created, 
+                                         //behaves like a private field
+
+        //means the same as if we typed this: public string Name {get => name; set => name = value;}
+        public int Age { get; set; }
     }
 }
