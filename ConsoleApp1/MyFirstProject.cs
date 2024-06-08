@@ -1,5 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using System;
+using System;  
 using System.Collections.Generic;  //this is needed for the Lists and Dictionaries
 using System.Globalization;   //this is needed for the currency formatting
 using System.Linq;   //this is needed for the sorting of the arrays and lists
@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;   //this is needed for the string manipulation and formatting 
 using System.Threading.Tasks;   //this is needed for the Thread.Sleep function
+
 
 // namespace HelloWorld
 // {
@@ -2203,14 +2204,14 @@ using System.Threading.Tasks;   //this is needed for the Thread.Sleep function
 
 
 //Class Properties
-namespace Properties
-{
-        class Person{
-            private string name;  
+// namespace Properties
+// {
+//         class Person{
+//             private string name;  
                                   
-            private int age;
+//             private int age;
 
-            public string Name  //this is a property, it is a special type of function that is used to access a private field and
+//             public string Name  //this is a property, it is a special type of function that is used to access a private field and
                                  //behave as new middle men, completely replace the getter and setter functions
                                 //  {
                                 //     get {
@@ -2221,12 +2222,12 @@ namespace Properties
                                 //                        //we dont have to specify the type of the value, because it is the same as the type of the property, or its actual value either
                                 //     }
                                 //  }
-                                {
-                                    get => name;  //this is the same as above, but with arrow functions
-                                    set => name = !string.IsNullOrEmpty(value) ? value : "Invalid name";  
-                                }
-            public int Age
-            {
+            //                     {
+            //                         get => name;  //this is the same as above, but with arrow functions
+            //                         set => name = !string.IsNullOrEmpty(value) ? value : "Invalid name";  
+            //                     }
+            // public int Age
+            // {
                 // get {
                 //     return age;
                 // }
@@ -2234,54 +2235,131 @@ namespace Properties
                 //     age = value;
                 // }
 
-                get => age;
-                set => age = value >= 0 && value < 150 ? value : -1;
-            }
+            //     get => age;
+            //     set => age = value >= 0 && value < 150 ? value : -1;
+            // }
 
             //with arrow functions
             // public string Name {get => name; set => name = value; }  //this is the same as above, but with arrow functions
             // public int Age {get => age; set => age = value; }
 
-            public Person(string name, int age)  //is this a constructor? - yes, because it is a function that is called when we create an instance of the class
+            // public Person(string name, int age)  //is this a constructor? - yes, because it is a function that is called when we create an instance of the class
                                                  //constructor is a special type of function that is used to initialize the object, so it is called when we create an instance of the class
-            {
+            // {
                 // this.name = name;
                 // this.age = age;
 
-                Name = name;  //this is how we can access the private field through the property
-                Age = age;
-            }
-        }
+        //         Name = name;  //this is how we can access the private field through the property
+        //         Age = age;
+        //     }
+        // }
 
-        class Program    //this is also a class, so we can have multiple classes in one file, but only one of them can be public
+        // class Program    //this is also a class, so we can have multiple classes in one file, but only one of them can be public
                          //also only one can have the Main function, because it is the entry point of the program, this class
                          //always have to be called Program, because it is the entry point of the program, convention
-        {
-            static void Main(string[] args)
-            {
-                Person person = new Person("Lilla", 34);   //so here 'Person' is an object of the class 'Person' so we can access the properties of the class through this object
+        // {
+        //     static void Main(string[] args)
+        //     {
+        //         Person person = new Person("Lilla", 34);   //so here 'Person' is an object of the class 'Person' so we can access the properties of the class through this object
                 
-                person.Name = "Federico";  //this is how we can change the value of the name variable, because it is private, through the property (in the class)   
-                person.Age = 35;
-                System.Console.WriteLine(person.Name);
-                System.Console.WriteLine($"Your name is {person.Name} and your age is {person.Age}."); 
-            }
-        }
+        //         person.Name = "Federico";  //this is how we can change the value of the name variable, because it is private, through the property (in the class)   
+        //         person.Age = 35;
+        //         System.Console.WriteLine(person.Name);
+        //         System.Console.WriteLine($"Your name is {person.Name} and your age is {person.Age}."); 
+        //     }
+        // }
         
-}
+// }
 
 
 //Auto Properties
 
-namespace Auto
-{
-    class Person
-    {
-        public string Name { get; set; }  //this is an auto property, it is a property that does not have a private field, so it is automatically created
+// namespace Auto
+// {
+//     class Person
+//     {
+//         public string Name { get; set; }  //this is an auto property, it is a property that does not have a private field, so it is automatically created
                                          //it is a shorthand for the property, so it is a property that does not have a private field, so it is automatically created, 
                                          //behaves like a private field
 
-        //means the same as if we typed this: public string Name {get => name; set => name = value;}
+//         //means the same as if we typed this: public string Name {get => name; set => name = value;}
+//         public int Age { get; set; }
+//     }
+// }
+
+
+//Class ToString function override
+namespace ToString  
+{
+    class Person
+    {
+        public string Name { get; set; }
         public int Age { get; set; }
+
+        public Person(string name, int age)
+        {
+            Name = name;
+            Age = age;
+        }
+
+        public string ReturnDetails()
+        {
+            return $"Name: {Name}\nAge: {Age}";
+        }
+
+        public override string ToString()  //this is a function that is used to override the ToString function, so we can return a string value of the object. but if i override this, what will happen? 
+                                           //- it will return the string value of the object, so it will return the name and the age of the person
+                                //i am confused, the ToString() function is a default function of the object class, so what does it do? 
+                                //- it returns a string representation of the object, so it is the memory address of the object
+                                //so if i override that .. how can it also return a string representation of the object? 
+                                //- it is doing so the same thing no? - yes, but we can change the value of the string. so it will return the name and the age of the person
+        {
+            // return base.ToString();  //this is the base class, so it is the object class, so it is the default ToString function.
+                                    //what does this do? - it returns a string representation of the object, so it is the memory address of the object
+            return $"Name: {Name}\nAge: {Age}";
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Person)
+            {
+                Person personobject = obj as Person;  //this is us creating a new object of the Person class, and we are casting (converting?) the obj object to a Person object
+                return Name.Equals(personobject.Name) && Age == personobject.Age;  //this is us checking if the name and the age of the person object is the same as the name and the age of the personobject
+            }
+            return false;
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Person bubi = new Person("Lilla", 34);
+            System.Console.WriteLine(bubi);  //this is how we can print out the object, because we have overridden the ToString function
+            // System.Console.WriteLine(person.ReturnDetails());
+            // System.Console.WriteLine(person.ToString());  
+            //what is the difference between the last two lines? - there is no difference, because the ToString function is called in both cases
+            Person test = new Person("Federico", 30);
+
+            // if ("Lilla".Equals("Federico"))  //these strings here now are objects, so we can use the Equals function, because it is a function 
+                                            //of the object class
+            // {
+            //     System.Console.WriteLine("Equal");
+            // }
+            // else
+            // {
+            //     System.Console.WriteLine("Not equal");
+            // }
+
+            if (bubi.Equals(test))  //same as above, but simply with the person object
+              //could also be (bubi == test)  //this is the same as above, but with the == operator, so it is checking if the two objects are the same
+            {
+                System.Console.WriteLine("Equal");
+            }
+            else
+            {
+                System.Console.WriteLine("Not equal");
+            }
+        }
     }
 }
